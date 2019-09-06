@@ -8,7 +8,7 @@ metadata:
   name: configure-alertmanager-operator-registry
   namespace: openshift-operator-lifecycle-manager
 spec:
-  image: quay.io/app-sre/dedicated-admin-operator-registry:staging-latest
+  image: quay.io/app-sre/configure-alertmanager-operator-registry:staging-latest
   displayName: Configure Alertmanager Operator
   icon:
     base64data: ""
@@ -22,7 +22,8 @@ metadata:
   name: configure-alertmanager-operator
   namespace: openshift-monitoring
 spec:
-  channel: staging
   name: configure-alertmanager-operator
   source: configure-alertmanager-operator-registry
   sourceNamespace: openshift-operator-lifecycle-manager
+  channel: staging
+  startingCSV: configure-alertmanager-operator.v0.1.72-5e55c47
