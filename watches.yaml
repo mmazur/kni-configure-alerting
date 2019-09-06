@@ -1,0 +1,5 @@
+---
+- version: v1alpha1
+  group: kni.openshift.io
+  kind: SREConfig
+  role: /opt/ansible/roles/sreconfig
