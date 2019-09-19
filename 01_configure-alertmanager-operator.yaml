@@ -16,6 +16,19 @@ spec:
   publisher: Red Hat
   sourceType: grpc
 ---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: openshift-cluster-monitoring
+  namespace: openshift-monitoring
+  annotations:
+    olm.providedAPIs: Alertmanager.v1.monitoring.coreos.com,Prometheus.v1.monitoring.coreos.com,PrometheusRule.v1.monitoring.coreos.com,ServiceMonitor.v1.monitoring.coreos.com
+spec:
+  staticProvidedAPIs: true
+  selector:
+    matchLabels:
+      openshift.io/cluster-monitoring: "true"
+---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
@@ -26,4 +39,3 @@ spec:
   source: configure-alertmanager-operator-registry
   sourceNamespace: openshift-operator-lifecycle-manager
   channel: staging
-  startingCSV: configure-alertmanager-operator.v0.1.72-5e55c47
