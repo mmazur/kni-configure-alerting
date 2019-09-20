@@ -1,2 +1,24 @@
 ---
 # tasks file for sreconfig
+
+- name: Set up configure-alertmanager-operator CatalogSource
+  k8s:
+    state: present
+    definition: "{{ lookup('file', 'configure-alertmanager-operator_catalogsource.yaml') }}"
+
+- name: Set up configure-alertmanager-operator Subscription
+  k8s:
+    state: present
+    definition: "{{ lookup('file', 'configure-alertmanager-operator_subscription.yaml') }}"
+
+- name: Configure deadmanssnitch
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'dms-secret.yaml') }}"
+  when: deadmanssnitch_url is defined
+
+- name: Configure pagerduty
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'pd-secret.yaml') }}"
+  when: pagerduty_key is defined

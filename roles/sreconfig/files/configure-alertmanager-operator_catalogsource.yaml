@@ -1,0 +1,17 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  labels:
+    opsrc-datastore: "true"
+    opsrc-provider: redhat
+  name: configure-alertmanager-operator-registry
+  namespace: openshift-operator-lifecycle-manager
+spec:
+  image: quay.io/app-sre/configure-alertmanager-operator-registry:staging-latest
+  displayName: Configure Alertmanager Operator
+  icon:
+    base64data: ""
+    mediatype: ""
+  publisher: Red Hat
+  sourceType: grpc
