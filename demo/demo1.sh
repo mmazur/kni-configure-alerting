@@ -19,13 +19,12 @@ TYPE_SPEED=26 pe "oc -n openshift-monitoring get secret alertmanager-main --temp
 
 
 narrate "Create SREConfig CR, so the operator can do its thing"
-pe "pygmentize deploy/crds/kni_v1alpha1_sreconfig_cr.yaml"
+pe "pygmentize demo/demo1-cr.yaml"
 sleep 3
-p "oc apply -f deploy/crds/kni_v1alpha1_sreconfig_cr.yaml"
-echo "sreconfig.kni.openshift.io/sreconfig created"
-#oc apply -f 01_configure-alertmanager-operator.yaml >/dev/null
-oc apply -f demo/demo1-secrets.yaml >/dev/null
-prompt
+pe "oc apply -f demo/demo1-cr.yaml"
+
+
+pe "sleep 10"
 
 
 narrate "Compare results"

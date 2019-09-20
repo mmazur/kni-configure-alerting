@@ -1,0 +1,8 @@
+apiVersion: kni.openshift.io/v1alpha1
+kind: SREConfig
+metadata:
+  name: sreconfig
+  namespace: openshift-monitoring
+spec:
+  pagerdutyKey: asdfasdfasdfasdfasdfasdfasdfasdf
+  deadmanssnitchURL: https://nosnch.in/ex4mpl3sn1tchID
