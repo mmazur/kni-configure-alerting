@@ -11,6 +11,13 @@
     state: present
     definition: "{{ lookup('file', 'configure-alertmanager-operator_subscription.yaml') }}"
 
+- name: Deploy additional alerts
+  k8s:
+    state: present
+    src: "{{ item }}"
+  with_fileglob:
+    - "alerts/*.yaml"
+
 - name: Configure deadmanssnitch
   k8s:
     state: present
